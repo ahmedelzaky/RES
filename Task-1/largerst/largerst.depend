@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1678032969 source:d:\git\res\task-1\largerst\main.c
+	<stdio.h>
+	<stdlib.h>
+
