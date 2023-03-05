@@ -15,10 +15,10 @@ int main()
     printf("1| +\n");
     printf("2| -\n");
     printf("3| *\n");
-    printf("4| /\n>> ");
+    printf("4| /\n\n>> ");
 
     scanf("%d", &op);
-    printf("\n>> ");
+    printf("\n");
 
     switch(op)
     {
@@ -34,6 +34,10 @@ int main()
     case 4:
         printf("%d", num1 / num2);
         break;
+    default:
+        printf("Wrong entery");
+        break;
+
 
     }
 

@@ -15,7 +15,7 @@ int main()
     printf(">> ");
     scanf("%d", &npow);
     result = pow(num,npow);
-    printf("the power %d of the number %d = %d \n", num, npow, result );
+    printf("the power %d of the number %d is %d \n", npow, num, result );
 
     return 0;
 }
