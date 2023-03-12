@@ -33,7 +33,7 @@ int main()
         break;
     case 4:
         if(num2 != 0)
-            printf("%d", num1 / num2);
+            printf("%.2f", num1 / (float)num2);
         else
             printf("ERORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
 
