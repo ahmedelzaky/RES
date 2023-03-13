@@ -7,72 +7,44 @@
 #define G2_LED 7
 #define B2_LED 6
 
+const int F_DELAY = 500;
+
+int leds[] = { R_LED, Y_LED, G_LED, B_LED, R2_LED, Y2_LED, G2_LED, B2_LED };
+int numLeds = sizeof(leds) / sizeof(leds[0]);
+
+
 
 void setup() {
-  pinMode(R_LED, OUTPUT);
-  pinMode(Y_LED, OUTPUT);
-  pinMode(G_LED, OUTPUT);
-  pinMode(B_LED, OUTPUT);
-  pinMode(R2_LED, OUTPUT);
-  pinMode(Y2_LED, OUTPUT);
-  pinMode(G2_LED, OUTPUT);
-  pinMode(B2_LED, OUTPUT);
+  for (int i = 0; i < numLeds; i++) {
+    pinMode(leds[i], OUTPUT);
+  }
 }
 
 void loop() {
+  animateFlash();
+  animateShift();
+  //animateConverge();
+}
 
-  //Flashing Leds every 500ms
-  digitalWrite(R_LED, HIGH);
-  digitalWrite(Y_LED, HIGH);
-  digitalWrite(G_LED, HIGH);
-  digitalWrite(B_LED, HIGH);
-  digitalWrite(R2_LED, HIGH);
-  digitalWrite(Y2_LED, HIGH);
-  digitalWrite(G2_LED, HIGH);
-  digitalWrite(B2_LED, HIGH);
-  delay(500);
 
-  digitalWrite(R_LED, LOW);
-  digitalWrite(Y_LED, LOW);
-  digitalWrite(G_LED, LOW);
-  digitalWrite(B_LED, LOW);
-  digitalWrite(R2_LED, LOW);
-  digitalWrite(Y2_LED, LOW);
-  digitalWrite(G2_LED, LOW);
-  digitalWrite(B2_LED, LOW);
-  delay(100);
-  //Shifting leds every 500ms
-  digitalWrite(R_LED, HIGH);
-  delay(500);
-  digitalWrite(R_LED, LOW);
+void animateFlash() {
 
-  digitalWrite(Y_LED, HIGH);
-  delay(500);
-  digitalWrite(Y_LED, LOW);
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(leds[i], HIGH);
+  }
 
-  digitalWrite(G_LED, HIGH);
-  delay(500);
-  digitalWrite(G_LED, LOW);
+  delay(F_DELAY);
 
-  digitalWrite(B_LED, HIGH);
-  delay(500);
-  digitalWrite(B_LED, LOW);
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(leds[i], LOW);
+  }
+}
 
-  digitalWrite(R2_LED, HIGH);
-  delay(500);
-  digitalWrite(R2_LED, LOW);
+void animateShift() {
 
-  digitalWrite(Y2_LED, HIGH);
-  delay(500);
-  digitalWrite(Y2_LED, LOW);
-
-  digitalWrite(G2_LED, HIGH);
-  delay(500);
-  digitalWrite(G2_LED, LOW);
-
-  digitalWrite(B2_LED, HIGH);
-  delay(500);
-  digitalWrite(B2_LED, LOW);
-
-  //2 LEDs converging every 500ms
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(F_DELAY);
+    digitalWrite(leds[i], LOW);
+  }
 }
