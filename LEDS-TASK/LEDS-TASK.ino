@@ -23,7 +23,10 @@ void setup() {
 void loop() {
   animateFlash();
   animateShift();
-  //animateConverge();
+  animateConverge();
+  animateDiverging();
+  animatePingPong();
+  animateSnake();
 }
 
 
@@ -44,7 +47,53 @@ void animateShift() {
 
   for (int i = 0; i < numLeds; i++) {
     digitalWrite(leds[i], HIGH);
+
+    delay(F_DELAY);
+
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+void animateConverge() {
+  for (int i = numLeds / 2; i >= 0; i--) {
+    digitalWrite(leds[i - 1], HIGH);
+    digitalWrite(leds[numLeds - i], HIGH);
+
+    delay(F_DELAY);
+
+    digitalWrite(leds[i - 1], LOW);
+    digitalWrite(leds[numLeds - i], LOW);
+  }
+}
+void animateDiverging() {
+  for (int i = 0; i < numLeds / 2; i++) {
+    digitalWrite(leds[i], HIGH);
+    digitalWrite(leds[numLeds - i - 1], HIGH);
+
+    delay(F_DELAY);
+
+    digitalWrite(leds[i], LOW);
+    digitalWrite(leds[numLeds - i - 1], LOW);
+  }
+}
+
+void animatePingPong() {
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(leds[i], HIGH);
     delay(F_DELAY);
     digitalWrite(leds[i], LOW);
+  }
+
+  for (int i = numLeds; i >= 0; i--) {
+    digitalWrite(leds[i], HIGH);
+    delay(F_DELAY);
+    digitalWrite(leds[i], LOW);
+  }
+}
+
+void animateSnake() {
+  for (int i = 0; i < numLeds; i++) {
+    digitalWrite(leds[i], HIGH);
+    delay(F_DELAY);
   }
 }
