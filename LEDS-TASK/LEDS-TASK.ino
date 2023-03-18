@@ -7,7 +7,7 @@
 #define G2_LED 7
 #define B2_LED 6
 
-const int F_DELAY = 500;
+const int F_DELAY = 200;
 
 int leds[] = { R_LED, Y_LED, G_LED, B_LED, R2_LED, Y2_LED, G2_LED, B2_LED };
 int numLeds = sizeof(leds) / sizeof(leds[0]);
