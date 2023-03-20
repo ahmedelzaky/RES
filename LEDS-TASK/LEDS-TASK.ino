@@ -9,18 +9,19 @@
 
 const int F_DELAY = 200;
 
-int leds[] = { R_LED, Y_LED, G_LED, B_LED, R2_LED, Y2_LED, G2_LED, B2_LED };
+int leds[] = {R_LED, Y_LED, G_LED, B_LED, R2_LED, Y2_LED, G2_LED, B2_LED};
 int numLeds = sizeof(leds) / sizeof(leds[0]);
 
-
-
-void setup() {
-  for (int i = 0; i < numLeds; i++) {
+void setup()
+{
+  for (int i = 0; i < numLeds; i++)
+  {
     pinMode(leds[i], OUTPUT);
   }
 }
 
-void loop() {
+void loop()
+{
   animateFlash();
   animateShift();
   animateConverge();
@@ -29,23 +30,27 @@ void loop() {
   animateSnake();
 }
 
+void animateFlash()
+{
 
-void animateFlash() {
-
-  for (int i = 0; i < numLeds; i++) {
+  for (int i = 0; i < numLeds; i++)
+  {
     digitalWrite(leds[i], HIGH);
   }
 
   delay(F_DELAY);
 
-  for (int i = 0; i < numLeds; i++) {
+  for (int i = 0; i < numLeds; i++)
+  {
     digitalWrite(leds[i], LOW);
   }
 }
 
-void animateShift() {
+void animateShift()
+{
 
-  for (int i = 0; i < numLeds; i++) {
+  for (int i = 0; i < numLeds; i++)
+  {
     digitalWrite(leds[i], HIGH);
 
     delay(F_DELAY);
@@ -54,8 +59,10 @@ void animateShift() {
   }
 }
 
-void animateConverge() {
-  for (int i = numLeds / 2; i >= 0; i--) {
+void animateConverge()
+{
+  for (int i = numLeds / 2; i >= 0; i--)
+  {
     digitalWrite(leds[i - 1], HIGH);
     digitalWrite(leds[numLeds - i], HIGH);
 
@@ -65,8 +72,10 @@ void animateConverge() {
     digitalWrite(leds[numLeds - i], LOW);
   }
 }
-void animateDiverging() {
-  for (int i = 0; i < numLeds / 2; i++) {
+void animateDiverging()
+{
+  for (int i = 0; i < numLeds / 2; i++)
+  {
     digitalWrite(leds[i], HIGH);
     digitalWrite(leds[numLeds - i - 1], HIGH);
 
@@ -77,22 +86,27 @@ void animateDiverging() {
   }
 }
 
-void animatePingPong() {
-  for (int i = 0; i < numLeds; i++) {
+void animatePingPong()
+{
+  for (int i = 0; i < numLeds; i++)
+  {
     digitalWrite(leds[i], HIGH);
     delay(F_DELAY);
     digitalWrite(leds[i], LOW);
   }
 
-  for (int i = numLeds; i >= 0; i--) {
+  for (int i = numLeds; i >= 0; i--)
+  {
     digitalWrite(leds[i], HIGH);
     delay(F_DELAY);
     digitalWrite(leds[i], LOW);
   }
 }
 
-void animateSnake() {
-  for (int i = 0; i < numLeds; i++) {
+void animateSnake()
+{
+  for (int i = 0; i < numLeds; i++)
+  {
     digitalWrite(leds[i], HIGH);
     delay(F_DELAY);
   }
