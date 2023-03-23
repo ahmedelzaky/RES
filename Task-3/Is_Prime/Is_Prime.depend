@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1679537649 source:d:\git\res\task-3\is_prime\main.c
+	<stdio.h>
+	<stdlib.h>
+

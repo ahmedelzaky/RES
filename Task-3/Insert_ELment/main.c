@@ -1,31 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
-int main()
+/**
+ * print_remaining_days - takes a date and prints how many days are
+ * left in the year, taking leap years into account
+ * @month: month in number format
+ * @day: day of month
+ * @year: year
+ * Return: void
+ */
+
+void print_remaining_days(int month, int day, int year)
 {
-    int arr[1000];
-    int eleNum;
-    int eleValue;
-    printf("Enter Element number between (1 : 100 )\n>> ");
-    scanf("%d", &eleNum);
-
-    if (eleNum > 0 && eleNum <= 100)
+    if ((year % 4 == 0 || year % 400 == 0) && !(year % 100 == 0))
     {
-        printf("Enter Element The Value\n>> ");
-        scanf("%d", &eleValue);
+        if (month >= 2 && day >= 60)
+        {
+            day++;
+        }
 
-        arr[eleNum - 1] = eleValue;
-        printf("The value of Element %d  is %d\n", eleNum, arr[eleNum - 1]);
+        printf("Day of the year: %d\n", day);
+        printf("Remaining days: %d\n", 366 - day);
     }
     else
     {
-        printf("Wrong Entry \n");
+        if (month == 2 && day == 60)
+        {
+            printf("Invalid date: %02d/%02d/%04d\n", month, day - 31, year);
+        }
+        else
+        {
+            printf("Day of the year: %d\n", day);
+            printf("Remaining days: %d\n", 365 - day);
+        }
     }
-
-    for(int i = 0; i < sizeof(arr) / sizeof(arr[0]) ; i++ )
-    {
-        printf("%d - %d\n", i+1 , arr[i]);
-
-    }
-    return 0;
 }
