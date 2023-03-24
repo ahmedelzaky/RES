@@ -9,7 +9,7 @@ int main()
 
     for(int i = 0 ; i < sizeof(arr)/sizeof(arr[0]) ; i++)
     {
-        printf("%d - >> ", i+1);
+        printf("%2yd - >> ", i+1);
         scanf("%d", &arr[i]);
 
     }

@@ -1,46 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swapByValue(int x,int y);
-void swapByRefrence(int *x, int*y);
+#define ARRAY_SIZE 10
 
 int main()
 {
-    int x;
-    int y;
+    int arr[ARRAY_SIZE];
 
-    printf("Enter The Value of x\n>> ");
-    scanf("%d", &x);
+    printf("Enter The Elements of array\n");
 
-    printf("Enter The Value of y\n>> ");
-    scanf("%d", &y);
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        printf("%2d - >> ", i + 1);
+        scanf("%d", &arr[i]);
+    }
 
-    printf ("x = %d   y = %d\n", x,y);
+    int frequency[ARRAY_SIZE] = {0};
 
-    swapByValue(x, y);
-    printf("\nAfter swaping by value\n");
-    printf ("x = %d   y = %d\n", x,y);
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        frequency[arr[i]]++;
+    }
 
-    swapByRefrence(&x, &y);
-    printf("\nAfter swaping by Refrence\n");
-    printf ("x = %d   y = %d\n", x,y);
+    printf("Frequency of each element in the array:\n");
+
+    for (int i = 0; i < ARRAY_SIZE; i++)
+    {
+        if (frequency[i] > 0)
+        {
+            printf("%d occurs %d times\n", i, frequency[i]);
+        }
+    }
 
     return 0;
-}
-
-void swapByValue(int x, int y)
-{
-    x = x + y;
-    y = x - y;
-    x = x - y;
-    printf("\nFrom swaping by value\n");
-    printf ("x = %d   y = %d\n", x,y);
-}
-
-void swapByRefrence(int *x, int *y)
-{
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
 }
