@@ -13,47 +13,53 @@ int main()
 
     printf("Enter The Number of Rows\n");
     scanf("%d", &row);
-
-    printf("Enter The Elements of array\n");
-
-    for(int i = 0 ; i < col; i++)
+    if( col > 0 && row > 0 )
     {
-        for(int j = 0 ; j < col; j++)
+        printf("Enter The Elements of array\n");
+
+        for(int i = 0 ; i < col; i++)
         {
-            printf("(%d , %d ) >> ", i+1, j+1 );
-            scanf("%d", &arr[i][j]);
-        }
-    }
-
-    printf("The Matrix You Entered\n");
-
-    for(int i = 0 ; i < col; i++)
-    {
-        printf("|");
-
-        for(int j = 0 ; j < col; j++)
-        {
-            printf(" %3d ,",arr[i][j]);
-        }
-        printf("\b|\n");
-    }
-
-    int sum = 0;
-    for(int i = 0 ; i < col; i++)
-    {
-        for(int j = 0 ; j < col; j++)
-        {
-            if( i == j)
+            for(int j = 0 ; j < col; j++)
             {
-                sum += arr[i][j];
+                printf("(%d , %d ) >> ", i+1, j+1 );
+                scanf("%d", &arr[i][j]);
             }
         }
+
+        printf("The Matrix You Entered\n");
+
+        for(int i = 0 ; i < col; i++)
+        {
+            printf("|");
+
+            for(int j = 0 ; j < col; j++)
+            {
+                printf(" %3d ,",arr[i][j]);
+            }
+            printf("\b|\n");
+        }
+
+        int sum = 0;
+        for(int i = 0 ; i < col; i++)
+        {
+            for(int j = 0 ; j < col; j++)
+            {
+                if( i == j)
+                {
+                    sum += arr[i][j];
+                }
+            }
+        }
+
+
+
+        printf("The Sum of Main Diagonal = %d\n",sum);
     }
+    else
+    {
+        printf("Wrong Entry\n");
 
-
-
-    printf("The Sum of Main Diagonal = %d\n",sum);
-
+    }
 
     return 0;
 }
