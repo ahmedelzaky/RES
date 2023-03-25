@@ -34,7 +34,7 @@ int main()
 
             for(int j = 0 ; j < col; j++)
             {
-                printf(" %3d ,",arr[i][j]);
+                printf(" %3d ",arr[i][j]);
             }
             printf("\b|\n");
         }
