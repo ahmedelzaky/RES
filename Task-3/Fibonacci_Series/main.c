@@ -9,7 +9,7 @@ int main()
     printf("Enter The Number\n>> ");
     scanf("%d", &num);
 
-    printf("The Result IS %d \n", fib(num) );
+    printf("\The %dth Fibonacci term is: %d\n", num,fib(num) );
 
     return 0;
 }
