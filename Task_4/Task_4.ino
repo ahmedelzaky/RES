@@ -1,5 +1,5 @@
 
-#define led 3
+#define led 11
 int i;
 
 void setup() {
@@ -12,7 +12,7 @@ void loop() {
     analogWrite(led, i);
     delay(10);
   }
-  for (; i >= 0; i--) {
+  for (i = 255; i >= 0; i--) {
     analogWrite(led, i);
     delay(10);
   }
