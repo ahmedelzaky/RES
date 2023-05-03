@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1683123285 source:d:\git\res\task_5\liner_serch\main.c
+	<stdio.h>
+	<stdlib.h>
+
