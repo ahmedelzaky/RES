@@ -49,22 +49,22 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-const byte ROWS = 4;  //four rows
-const byte COLS = 4;  //four columns
-//define the cymbols on the buttons of the keypads
+const byte ROWS = 4; // four rows
+const byte COLS = 4; // four columns
+// define the cymbols on the buttons of the keypads
 char hexaKeys[ROWS][COLS] = {
-  { '1', '2', '3', 'A' },
-  { '4', '5', '6', 'B' },
-  { '7', '8', '9', 'C' },
-  { '*', '0', '#', 'D' }
-};
-byte rowPins[ROWS] = { 9, 8, 7, 6 };  //connect to the row pinouts of the keypad
-byte colPins[COLS] = { 13, 10, A4, A5 };
+    {'1', '2', '3', 'A'},
+    {'4', '5', '6', 'B'},
+    {'7', '8', '9', 'C'},
+    {'*', '0', '#', 'D'}};
+byte rowPins[ROWS] = {9, 8, 7, 6}; // connect to the row pinouts of the keypad
+byte colPins[COLS] = {13, 10, A4, A5};
 
-//initialize an instance of class NewKeypad
+// initialize an instance of class NewKeypad
 Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
@@ -72,10 +72,14 @@ void setup() {
   lcd.print("Enter a Char:");
 }
 
-void loop() {
+void loop()
+{
+  // Check if there is any serial input available
+  lcd.setCursor(0, 1);
 
   char button = customKeypad.getKey();
-  if (button) {
+  if (button)
+  {
     lcd.print(button);
   }
 }
