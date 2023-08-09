@@ -12,7 +12,6 @@ def split_strings(strings):
     return first_half, second_half
 
 
-# Example list of strings
 strings = ["aaaccc", "lllsss", "wwwmmm", "ooouuu"]
 
 print(strings)
