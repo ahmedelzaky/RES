@@ -4,13 +4,12 @@
 int main()
 {
     int arr[] = {1, 3, 7, 20, 36, 42, 50, 60, 180};
-    int size = sizeof(arr) /sizeof(arr[0]);
+    int size = sizeof(arr) / sizeof(arr[0]);
     int num;
     int index;
 
     printf("Enter the number\n>>");
     scanf("%d", &num);
-
 
     index = binarySearch(arr, size, num);
 
@@ -23,7 +22,6 @@ int main()
         printf("Number found at position %d\n", index);
     }
     return 0;
-
 }
 
 int binarySearch(int arr[], int size, int num)
@@ -50,4 +48,3 @@ int binarySearch(int arr[], int size, int num)
 
     return -1;
 }
-
